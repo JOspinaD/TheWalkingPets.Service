@@ -1,6 +1,8 @@
-﻿namespace TheWalkingPets.Service.Models
+﻿using TheWalkingPets.Service.Models.Base;
+
+namespace TheWalkingPets.Service.Models
 {
-    public class Usuario
+    public class Usuario : BaseEntity
     {
         public string Nombre { get; set; }
         public string Apellido { get; set; }
