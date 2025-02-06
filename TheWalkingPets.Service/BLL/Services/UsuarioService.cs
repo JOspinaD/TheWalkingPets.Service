@@ -13,7 +13,7 @@ namespace TheWalkingPets.Service.BLL.Services
         private readonly IGenericRepository<Usuario> _repository = repository;
         private readonly IMapper _mapper = mapper;
 
-        public async Task<Result<UsuarioReadDto>> CreateAsync(UsuarioReadDto usuarioWriteDto)
+        public async Task<Result<UsuarioReadDto>> CreateAsync(UsuarioWriteDto usuarioWriteDto)
         {
             try
             {
