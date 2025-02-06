@@ -7,7 +7,7 @@ namespace TheWalkingPets.Service.IOC
 {
     public static class Dependencia
     {
-        public static IServiceCollection InyectarDependencia(this IServiceCollection services, IConfiguration configuration, IWebHostEnvironment env, bool tryDbConnection = false)
+        public static IServiceCollection InyectarDependencias(this IServiceCollection services, IConfiguration configuration, IWebHostEnvironment env, bool tryDbConnection = false)
         {
             if(env.IsProduction() || tryDbConnection)
             {
