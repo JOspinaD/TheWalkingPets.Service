@@ -8,10 +8,11 @@ using TheWalkingPets.Service.Models;
 
 namespace TheWalkingPets.Service.BLL.Services
 {
-    public class UsuarioService(IGenericRepository<Usuario> repository, IMapper mapper) : IUsuarioService
+    public class UsuarioService(IGenericRepository<Usuario> repository, IMapper mapper, PasswordService passwordService) : IUsuarioService
     {
         private readonly IGenericRepository<Usuario> _repository = repository;
         private readonly IMapper _mapper = mapper;
+        private readonly PasswordService _passwordService = passwordService;
 
         public async Task<Result<UsuarioReadDto>> CreateAsync(UsuarioWriteDto usuarioWriteDto)
         {
@@ -22,7 +23,10 @@ namespace TheWalkingPets.Service.BLL.Services
                     return Result.Failure<UsuarioReadDto>(UsuarioErrors.AlreadyExists);
                 }
 
+                var (hash, salt) = _passwordService.HashPassword(usuarioWriteDto.HashContraseña);
                 var model = _mapper.Map<Usuario>(usuarioWriteDto);
+                model.HashContraseña = hash;
+                model.Salt = salt;
                 var result = await _repository.Add(model);
                 return Result.Success(_mapper.Map<UsuarioReadDto>(result));
             }
@@ -93,6 +97,15 @@ namespace TheWalkingPets.Service.BLL.Services
                 }
 
                 _mapper.Map(usuarioWriteDto, model);
+
+                if (!string.IsNullOrEmpty(usuarioWriteDto.HashContraseña))
+                {
+                    var (hash, salt) = _passwordService.HashPassword(usuarioWriteDto.HashContraseña);
+
+                    model.HashContraseña = hash;
+                    model.Salt = salt;
+                }
+
                 var result = await _repository.Update(model);
                 return Result.Success(_mapper.Map<UsuarioReadDto>(result));
             }
