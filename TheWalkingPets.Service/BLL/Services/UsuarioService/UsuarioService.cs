@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using TheWalkingPets.Service.BLL.Errors.UsuarioErrors;
-using TheWalkingPets.Service.BLL.Services.Contract;
+using TheWalkingPets.Service.BLL.Services.Contract.IUsuarioService;
 using TheWalkingPets.Service.common;
 using TheWalkingPets.Service.DAL.Contract;
 using TheWalkingPets.Service.DTO.Usuario;
 using TheWalkingPets.Service.Models;
 
-namespace TheWalkingPets.Service.BLL.Services
+namespace TheWalkingPets.Service.BLL.Services.UsuarioService
 {
     public class UsuarioService(IGenericRepository<Usuario> repository, IMapper mapper, PasswordService passwordService) : IUsuarioService
     {
