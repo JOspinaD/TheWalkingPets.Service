@@ -2,7 +2,7 @@
 
 namespace TheWalkingPets.Service.BLL.Errors.MascotaErrors
 {
-    public class TipoMascota
+    public class TipoMascotaErrors
     {
         public static readonly Error NotExists = new(
             "TipoMascota.AlreadyExists",
