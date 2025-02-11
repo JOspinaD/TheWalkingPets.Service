@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TheWalkingPets.Service.BLL.Services.Contract;
+using TheWalkingPets.Service.BLL.Services.Contract.IUsuarioService;
 using TheWalkingPets.Service.Controllers.Extensions;
 using TheWalkingPets.Service.DTO.Usuario;
 
 namespace TheWalkingPets.Service.Controllers
 {
-        [Route("api/[controller]")]
+    [Route("api/[controller]")]
         [ApiController]
     public class UsuarioController(IUsuarioService _service): ControllerBase
     {

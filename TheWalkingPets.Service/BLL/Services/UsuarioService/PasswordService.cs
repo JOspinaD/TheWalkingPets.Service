@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 
-namespace TheWalkingPets.Service.BLL.Services
+namespace TheWalkingPets.Service.BLL.Services.UsuarioService.UsuarioService
 {
     public class PasswordService
     {
@@ -33,8 +33,8 @@ namespace TheWalkingPets.Service.BLL.Services
                 password: password,
                 salt: salbytes,
                 prf: KeyDerivationPrf.HMACSHA256,
-                iterationCount: 10000, 
-                numBytesRequested: 256 / 8)); 
+                iterationCount: 10000,
+                numBytesRequested: 256 / 8));
 
             return hashed == hash;
         }

@@ -1,7 +1,7 @@
 ﻿using TheWalkingPets.Service.common;
 using TheWalkingPets.Service.DTO.Usuario;
 
-namespace TheWalkingPets.Service.BLL.Services.Contract
+namespace TheWalkingPets.Service.BLL.Services.Contract.IUsuarioService
 {
     public interface IUsuarioService
     {
