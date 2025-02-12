@@ -3,6 +3,6 @@
     public class RazaMascotaWriteDto
     {
         public string NombreRaza { get; set; }
-        public Guid IdTipoMascota { get; set; }
+        public Guid? IdTipoMascota { get; set; }
     }
 }
