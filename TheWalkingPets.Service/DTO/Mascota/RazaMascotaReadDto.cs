@@ -6,8 +6,8 @@ namespace TheWalkingPets.Service.DTO.Mascota
     public class RazaMascotaReadDto : BaseReadDto
     {
         public string NombreRaza { get; set; }
-        public Guid IdTipoMascota { get; set; }
+        public Guid? IdTipoMascota { get; set; }
 
-        public virtual TipoMascota TipoMascota { get; set; }
+        public virtual TipoMascota? TipoMascota { get; set; }
     }
 }
