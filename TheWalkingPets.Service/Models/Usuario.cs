@@ -1,5 +1,4 @@
 ﻿using TheWalkingPets.Service.Models.Base;
-using TheWalkingPets.Service.Models.Mascotas;
 
 namespace TheWalkingPets.Service.Models
 {
@@ -14,7 +13,5 @@ namespace TheWalkingPets.Service.Models
         public int? Edad {  get; set; }
         public string? Direccion { get; set; }
         public string? Telefono { get; set; }
-
-        public virtual ICollection<Mascota>? Mascotas { get; set; }
     }
 }
