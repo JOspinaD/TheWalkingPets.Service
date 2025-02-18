@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using TheWalkingPets.Service.DTO.Mascota;
+using TheWalkingPets.Service.DTO.Trabajo;
 using TheWalkingPets.Service.DTO.Usuario;
 using TheWalkingPets.Service.Models;
 using TheWalkingPets.Service.Models.Mascotas;
+using TheWalkingPets.Service.Models.Trabajo;
 
 namespace TheWalkingPets.Service.Profiles
 {
@@ -21,6 +23,12 @@ namespace TheWalkingPets.Service.Profiles
 
             CreateMap<TipoMascota, TipoMascotaReadDto>();
             CreateMap<TipoMascotaWriteDto, TipoMascota>();
+
+            CreateMap<Trabajo, TrabajoReadDto>();
+            CreateMap<TrabajoWriteDto, Trabajo>();
+
+            CreateMap<UsuarioTrabajo, UsuarioTrabajoReadDto>();
+            CreateMap<UsuarioTrabajoWriteDto,  UsuarioTrabajo>();
         }
     }
 }
