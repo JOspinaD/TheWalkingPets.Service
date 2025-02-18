@@ -1,5 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
+using TheWalkingPets.Service.BLL.Services.Contract.IMascota;
+using TheWalkingPets.Service.BLL.Services.Contract.IUsuarioService;
+using TheWalkingPets.Service.BLL.Services.MascotaService;
+using TheWalkingPets.Service.BLL.Services.UsuarioService;
 using TheWalkingPets.Service.DAL;
 using TheWalkingPets.Service.DAL.Contract;
 
@@ -28,7 +32,14 @@ namespace TheWalkingPets.Service.IOC
             services.AddProblemDetails();
 
             services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddScoped<IUsuarioService, UsuarioService>();
+
+            services.AddScoped<IRazaMascotaService, RazaMascotaService>();
+            services.AddScoped<ITipoMascotaService, TipoMascotaService>();
+            services.AddScoped<IMascotaService, MascotaService>();
 
             return services;
         }
