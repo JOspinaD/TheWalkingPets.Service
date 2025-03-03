@@ -5,9 +5,9 @@ using TheWalkingPets.Service.DTO.Usuario;
 
 namespace TheWalkingPets.Service.Controllers
 {
-    [Route("api/[controller]")]
-        [ApiController]
-    public class UsuarioController(IUsuarioService _service): ControllerBase
+    [Route("api/usuario")]
+    [ApiController]
+    public class UsuarioController(IUsuarioService _service) : ControllerBase
     {
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UsuarioReadDto>>> GetAll()
@@ -16,7 +16,7 @@ namespace TheWalkingPets.Service.Controllers
             return result.IsSuccess ? Ok(result.Value) : result.ToProblemDetails();
         }
 
-        [HttpGet("/usuario{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<UsuarioReadDto>> GetById(Guid id)
         {
             var result = await _service.GetByIdAsync(id);
@@ -30,14 +30,14 @@ namespace TheWalkingPets.Service.Controllers
             return result.IsSuccess ? Ok(result.Value) : result.ToProblemDetails();
         }
 
-        [HttpPut("/Usuario{id}")]
+        [HttpPut("{id}")]
         public async Task<ActionResult<UsuarioReadDto>> Put(Guid id, UsuarioWriteDto usuarioWriteDto)
         {
             var result = await _service.UpdateAsync(id, usuarioWriteDto);
             return result.IsSuccess ? Ok(result.Value) : result.ToProblemDetails();
         }
 
-        [HttpDelete("/usuario{id}")]
+        [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(Guid id)
         {
             var result = await _service.DeleteAsync(id);
