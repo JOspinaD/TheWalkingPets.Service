@@ -6,7 +6,7 @@ using TheWalkingPets.Service.DAL.Contract;
 using TheWalkingPets.Service.DTO.Usuario;
 using TheWalkingPets.Service.Models;
 
-namespace TheWalkingPets.Service.BLL.Services.UsuarioService
+namespace TheWalkingPets.Service.BLL.Services.UsuarioService.UsuarioService
 {
     public class UsuarioService(IGenericRepository<Usuario> repository, IMapper mapper, PasswordService passwordService) : IUsuarioService
     {
