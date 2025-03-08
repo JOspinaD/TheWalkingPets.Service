@@ -5,7 +5,7 @@ using TheWalkingPets.Service.DTO.Mascota;
 
 namespace TheWalkingPets.Service.Controllers.MascotaControllers.MascotaController
 {
-    [Route("api/[controller]")]
+    [Route("api/mascota")]
     [ApiController]
     public class MascotaController(
         IMascotaService _service,
