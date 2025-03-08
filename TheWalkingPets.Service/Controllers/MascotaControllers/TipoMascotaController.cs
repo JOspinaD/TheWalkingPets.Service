@@ -5,7 +5,7 @@ using TheWalkingPets.Service.DTO.Mascota;
 
 namespace TheWalkingPets.Service.Controllers.MascotaControllers.MascotaController
 {
-    [Route("api/[controller]")]
+    [Route("api/tipo-mascota")]
     [ApiController]
     public class TipoMascotaController(
         ITipoMascotaService _tipoMascotaService) : ControllerBase
@@ -17,7 +17,7 @@ namespace TheWalkingPets.Service.Controllers.MascotaControllers.MascotaControlle
             return result.IsSuccess ? Ok(result.Value) : result.ToProblemDetails();
         }
 
-        [HttpGet("TipoMascota/{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<TipoMascotaReadDto>> GetByIdAsync(Guid id)
         {
             var result = await _tipoMascotaService.GetByIdTipoAsync(id);
@@ -31,7 +31,14 @@ namespace TheWalkingPets.Service.Controllers.MascotaControllers.MascotaControlle
             return result.IsSuccess ? Ok(result.Value) : result.ToProblemDetails(); 
         }
 
-        [HttpDelete]
+        [HttpPut("{id}")]
+        public async Task<ActionResult<TipoMascotaReadDto>> updateAsync(Guid id, TipoMascotaWriteDto tipoMascotaWriteDto)
+        {
+            var result = await _tipoMascotaService.UpdateTipoMascotaAsync(id, tipoMascotaWriteDto);
+            return result.IsSuccess ? Ok(result.Value) : result.ToProblemDetails();
+        }
+
+        [HttpDelete("{id}")]
         public async Task<ActionResult<TipoMascotaReadDto>> DeleteAsync(Guid id)
         {
             var result = await _tipoMascotaService.DeleteTipoMascotaAsync(id);
